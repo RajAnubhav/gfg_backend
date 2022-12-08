@@ -1,0 +1,142 @@
+@import url(https://fonts.googleapis.com/css?family=Finger+Paint);
+div.textFre{
+  /* background: black; */
+  overflow: hidden;
+  font: 6vw/50vh "Finger Paint";
+  text-align: center;
+  color: transparent;
+  display: inline-flex;
+  padding-right: 2em;
+  /* backface-visibility: hidden; */
+}
+
+span.textFre {
+  padding-top: 1.5em;
+  text-shadow: 0 0 0 black;
+  animation: smoky 10s 10s both;
+  animation-iteration-count: infinite;
+}
+
+span.textFre:nth-child(even) {
+  animation-name: smoky-mirror;
+  animation-iteration-count: infinite;
+}
+
+@keyframes smoky {
+  60% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    transform: translate3d(15rem, -8rem, 0) rotate(-20deg) skewX(70deg) scale(1.5);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+}
+@keyframes smoky-mirror {
+  60% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    transform: translate3d(15rem, -8rem, 0) rotate(-20deg) skewX(-70deg) scale(2);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+  }
+}
+span.textFre:nth-of-type(1) {
+  animation-delay: 3.1s;
+}
+
+span.textFre:nth-of-type(2) {
+  animation-delay: 3.2s;
+}
+
+span.textFre:nth-of-type(3) {
+  animation-delay: 3.3s;
+}
+
+span.textFre:nth-of-type(4) {
+  animation-delay: 3.4s;
+}
+
+span.textFre:nth-of-type(5) {
+  animation-delay: 3.5s;
+}
+
+span.textFre:nth-of-type(6) {
+  animation-delay: 3.6s;
+}
+
+span:nth-of-type(7) {
+  animation-delay: 3.7s;
+}
+
+span.textFre:nth-of-type(8) {
+  animation-delay: 3.8s;
+}
+
+span.textFre:nth-of-type(9) {
+  animation-delay: 3.9s;
+}
+
+span.textFre:nth-of-type(10) {
+  animation-delay: 4s;
+}
+
+span.textFre:nth-of-type(11) {
+  animation-delay: 4.1s;
+}
+
+span.textFre:nth-of-type(12) {
+  animation-delay: 4.2s;
+}
+
+span.textFre:nth-of-type(13) {
+  animation-delay: 4.3s;
+}
+
+span.textFre:nth-of-type(14) {
+  animation-delay: 4.4s;
+}
+
+span.textFre:nth-of-type(15) {
+  animation-delay: 4.5s;
+}
+
+span.textFre:nth-of-type(16) {
+  animation-delay: 4.6s;
+}
+
+span.textFre:nth-of-type(17) {
+  animation-delay: 4.7s;
+}
+
+span.textFre:nth-of-type(18) {
+  animation-delay: 4.8s;
+}
+
+span.textFre:nth-of-type(19) {
+  animation-delay: 4.9s;
+}
+
+span.textFre:nth-of-type(20) {
+  animation-delay: 5s;
+}
+
+span.textFre:nth-of-type(21) {
+  animation-delay: 5.1s;
+}
+@media only screen and (max-width:600px) {
+  img.illa {height: 350px;}
+  span.textFre {
+    overflow: hidden;
+  font:  3vw/20vh "Finger Paint";
+  text-align: center;
+  font-size: x-large;
+  color: transparent;
+  display: inline-flex;
+  }
+  
+}
+
+
+/*# sourceMappingURL=text.css.map */
