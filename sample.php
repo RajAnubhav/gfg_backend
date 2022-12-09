@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
     <link rel="stylesheet" href="css/tooplate-style.css">
 </head>
 
-<body class="page-leaderboard">
+<body class="page-leaderboard" title="Developed by Anubhav">
     <div id="contain-all" class=" slideout-panel">
 
         <nav class="navbar navbar-expand-sm navbar-light">

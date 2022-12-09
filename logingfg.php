@@ -139,26 +139,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-decoration: none;
         }
 
-        .container {
+        .container1 {
             position: relative;
             z-index: 1;
             max-width: 300px;
             margin: 0 auto;
         }
 
-        .container:before,
-        .container:after {
+        .container1:before,
+        .container1:after {
             content: "";
             display: block;
             clear: both;
         }
 
-        .container .info {
+        .container1 .info {
             margin: 50px auto;
             text-align: center;
         }
 
-        .container .info h1 {
+        .container1 .info h1 {
             margin: 0 0 15px;
             padding: 0;
             font-size: 36px;
@@ -166,17 +166,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: #1a1a1a;
         }
 
-        .container .info span {
+        .container1 .info span {
             color: #4d4d4d;
             font-size: 12px;
         }
 
-        .container .info span a {
+        .container1 .info span a {
             color: #000000;
             text-decoration: none;
         }
 
-        .container .info span .fa {
+        .container1 .info span .fa {
             color: #EF3B3A;
         }
 
@@ -186,12 +186,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 
-<body>
+<body title="Developed by Anubhav">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <!-- MENU -->
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-light headroom headroom--not-bottom headroom--pinned headroom--top">
-        <div class="container">
+        <div class="container
+">
             <a class="navbar-brand">GeeksforGeeks SIT</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -203,13 +204,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a href="#about"  class="nav-link"><span data-hover="About">About</span></a>
+                        <a href="./index.php" class="nav-link"><span data-hover="Home">Home</span></a>
                     </li>
                     <li class="nav-item">
                         <a href="./login.php" class="nav-link"><span data-hover="Leaderboard">Leaderboard</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="./logingfg.php"  class="nav-link"><span data-hover="GFG Members login">GFG Members login</span></a>
+                        <a href="./logingfg.php" class="nav-link"><span data-hover="GFG Members login">GFG Members login</span></a>
                     </li>
                 </ul>
             </div>
@@ -225,6 +226,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="form">
             <form class="register-form" method="post" action="logingfg.php">
+                <div>
+                    <h3 style="padding: 0px 0px 20px 0px; color: rgb(16, 163, 16);">GFG-SIT Member</h3>
+                </div>
                 <div>
                     <input type="text" name="username" placeholder="Username" />
                 </div>

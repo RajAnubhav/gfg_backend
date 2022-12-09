@@ -21,7 +21,7 @@
 
 </head>
 
-<body>
+<body title="Developed by Anubhav">
 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <!-- Navbar -->

@@ -227,7 +227,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/tooplate-style.css">
 </head>
 
-<body>
+<body title="Developed by Anubhav">
 
     <!-- Navbar page -->
     <!-- Navbar -->
