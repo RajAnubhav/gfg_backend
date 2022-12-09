@@ -2,13 +2,15 @@
 include('./include/connection.php');
 
 session_start();
-if (!$_SESSION['username']) {
+if (!isset($_SESSION['role'])) {
+    session_destroy();
     echo "
-            <script>
-                window.location='login.php';
-            </script>
-        ";
+        <script>
+            window.location='./index.php';
+        </script>
+    ";
 }
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
     $score = $_POST['score'];
     $username = $_SESSION['name'];
@@ -43,14 +45,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
     <link rel="stylesheet" href="./css/botton.css">
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="css/tooplate-style.css">
+    
+
+    <style>
+        button {
+            border: none;
+            background-color: rgb(16, 163, 16);
+            color: white;
+            font-family: "Maven Pro", sans-serif;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 0px 0px 0px -75px;
+        }
+    </style>
 </head>
 
-<body class="page-leaderboard">
+<body class="page-leaderboard" title="Developed by Anubhav">
+
+
     <div id="contain-all" class=" slideout-panel">
 
         <nav class="navbar navbar-expand-sm navbar-light">
             <div class="container">
-                <a class="navbar-brand">GeeksforGeeks SIT</a>
+                <a class="navbar-brand" href="./index.php">GeeksforGeeks SIT</a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"><a href="./index.php">Home</a></span>
@@ -82,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
         </section>
         <section class="leaderboard-progress">
             <div class="contain text-center">
-                <h2 style="padding-top: 35px;">Geeks for Geeks Leaderboard</h2>
+                <h2 style="padding-top: 35px; color: rgb(16, 163, 16);">Geeks for Geeks Leaderboard</h2>
             </div>
         </section>
         <section class="ranking">
@@ -105,8 +122,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 <div class='ranking-table-data'>
                                     {$row[4]}
                                 </div>
-                            </div>
-                            ";
+                                <div class='ranking-table-data'> ";
+                    ?>
+
+                        <button data-toggle="modal" data-target="#exampleModal" class="editBtn" id="<?php echo $row[0] ?> " >Edit</button>
+
+                </div>
+            </div>
+        <?php
                             $ranking++;
                         } else if ($ranking == 2) {
                             echo "
@@ -120,6 +143,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 <div class='ranking-table-data'>
                                 {$row[4]}
                                 </div>
+                                ";
+
+                                ?>
+                                    <div class='ranking-table-data'>
+                                    <button data-toggle="modal" data-target="#exampleModal" class="editBtn" id="<?php echo $row[0] ?> ">Edit</button>
+
+                                    </div>
+                            <?php
+                            echo "
                                 </div>
                                 ";
                             $ranking++;
@@ -134,6 +166,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 </div>
                                 <div class='ranking-table-data'>
                                 {$row[4]}
+                                </div>
+                                <div class='ranking-table-data'>
+                                ";
+                                ?>
+                                                                            <button data-toggle="modal" data-target="#exampleModal" class="editBtn" id="<?php echo $row[0] ?> ">Edit</button>
+
+                                <?php
+                                echo"
                                 </div>
                                 </div>
                                 ";
@@ -151,6 +191,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 <div class='ranking-table-data padding-4'>
                                 {$row[4]}
                                 </div>
+                                </div>
+                                <div class='ranking-table-data'>
+
+                                ";
+                                ?>
+
+                                        <button data-toggle="modal" data-target="#exampleModal" class="editBtn" id="<?php echo $row[0] ?> ">Edit</button>
+                                <?php
+
+                                echo "
                                 </div>
                                 </div>
                                 ";
@@ -173,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                         $wi_ranking = 1;
 
                         foreach ($data as $row) {
-                            if ($row[3] == "Wikispeedia") {
+                            if ($row[3] == "Wikispeedia" && $member_data[3] == "Wikispeedia") {
                                 if ($wiki_ranking == 1) {
                                     echo "
                                     <br>
@@ -260,12 +310,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                         }
                     }
                     echo "<br>";
-                    ?>
-                </div>
-
-        </section>
+    ?>
     </div>
 
+    </section>
+    </div>
+<!-- modal -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" class="editBtn" id="<?php echo $row[0] ?> ">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 10000;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="form">
+        <form class="register-form" method="post" action="update.php">
+            <div>
+                <input type="number" name="score" placeholder="Score" />
+                <input type="hidden" name="id" id="Id">
+            </div>
+            
+      </div>
+      <div class="modal-footer">
+      <button type="submit" style="margin: 10 0px;">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <script>
+    let editBtn=document.getElementsByClassName('editBtn');
+    Array.from(editBtn).forEach((e)=>{
+        e.addEventListener('click',()=>{
+            document.getElementById('Id').value=e.id;
+
+        })
+    })
+ </script>
 </body>
 
 </html>

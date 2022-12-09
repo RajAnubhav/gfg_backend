@@ -3,6 +3,14 @@
 <?php
 session_start();
 
+if(isset($_SESSION['username'])){
+    echo"
+        <script>
+            window.location='./editsample.php';
+        </script>
+    ";
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include("include/connection.php");
     $username = $_POST['username'];
@@ -13,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = mysqli_fetch_row($res);
 
     if (($username == $row[1]) && ($password == $row[2])) {
+        $_SESSION['role'] = $row[4];
         echo "
         <script>
         window.location='./editsample.php';

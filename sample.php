@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
 
         <nav class="navbar navbar-expand-sm navbar-light">
             <div class="container">
-                <a class="navbar-brand">GeeksforGeeks SIT</a>
+                <a class="navbar-brand" href="./index.php">GeeksforGeeks SIT</a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"><a href="./index.php">Home</a></span>
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
         </section>
         <section class="leaderboard-progress">
             <div class="contain text-center">
-                <h2 style="padding-top: 35px;">Geeks for Geeks Leaderboard</h2>
+                <h2 style="padding-top: 35px; color: rgb(16, 163, 16);">Geeks for Geeks Leaderboard</h2>
             </div>
         </section>
         <section class="ranking">

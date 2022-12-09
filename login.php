@@ -205,7 +205,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             #navbarNav{
                 display: none;
             }
-            
+
             .tag{
                 padding-top: 50px;
             }
@@ -230,7 +230,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Navbar page -->
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container">
-            <a class="navbar-brand">GeeksforGeeks SIT</a>
+            <a class="navbar-brand" href="./index.php">GeeksforGeeks SIT</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><a href="./index.php">Home</a></span>
