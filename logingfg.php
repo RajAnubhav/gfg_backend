@@ -3,8 +3,8 @@
 <?php
 session_start();
 
-if(isset($_SESSION['username'])){
-    echo"
+if (isset($_SESSION['username'])) {
+    echo "
         <script>
             window.location='./editsample.php';
         </script>
@@ -180,46 +180,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: #EF3B3A;
         }
 
-        body {
-            font-family: "Roboto", sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
         .password {
             display: flex;
-        }
-
-        .nav-item {
-            text-align: center;
-            padding: 22px 0px 0px 0px;
-            font-family: "Maven Pro", sans-serif;
-            width: 160px;
-        }
-
-        .navbar-light {
-            width: 100%;
-        }
-
-        @media (max-width: 560px ) {
-            body{
-                margin-top: 100px;
-            }
-            .tag{
-                padding-top: 50px;
-            }
-        }
-
-        @media (max-width: 360px ) {
-            .form {
-            position: relative;
-            padding: 45px;
-            background:none;
-            text-align: center;
-            }
-            .tag{
-                padding-top: 50px;
-            }
         }
     </style>
 </head>
@@ -227,15 +189,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <!-- MENU -->
-    <nav class="navbar navbar-expand-sm navbar-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-light headroom headroom--not-bottom headroom--pinned headroom--top">
         <div class="container">
-            <a class="navbar-brand tag" style="left:150px; font-weight: 900; font-family: 'Maven Pro', sans-serif;" href="index.php">GeeksforGeeks SIT</a>
+            <a class="navbar-brand">GeeksforGeeks SIT</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a href="#about"  class="nav-link"><span data-hover="About">About</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./login.php" class="nav-link"><span data-hover="Leaderboard">Leaderboard</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./logingfg.php"  class="nav-link"><span data-hover="GFG Members login">GFG Members login</span></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <!-- official geeksforgeeks website login page -->
 
     <div class="login-page" style="text-align:center;">
+        <div class="heading">
+            <h2 style="display: flex; justify-content: center; padding-bottom: 20px; margin-top: -50px;">Login</h2>
+        </div>
+
         <div class="form">
             <form class="register-form" method="post" action="logingfg.php">
                 <div>
@@ -265,6 +252,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }, "slow");
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
     <script>
         function show() {

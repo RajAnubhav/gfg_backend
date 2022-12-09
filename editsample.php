@@ -65,31 +65,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
 
     <div id="contain-all" class=" slideout-panel">
 
-        <nav class="navbar navbar-expand-sm navbar-light">
-            <div class="container">
-                <a class="navbar-brand" href="./index.php">GeeksforGeeks SIT</a>
+        <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-light headroom headroom--not-bottom headroom--pinned headroom--top">
+        <div class="container">
+            <a class="navbar-brand">GeeksforGeeks SIT</a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"><a href="./index.php">Home</a></span>
-                    <span class="navbar-toggler-icon"><a href="./login.php">Leaderboard</a></span>
-                    <span class="navbar-toggler-icon"><a href="./logout.php">Logout</a></span>
-                </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a href="./index.php" class="nav-link"><span data-hover="Home">Home</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./login.php" class="nav-link"><span data-hover="Leaderboard">Leaderboard</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./logout.php" class="nav-link"><span data-hover="Logout">Logout</span></a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a href="./index.php" class="nav-link"><span data-hover="Home">Home</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./logout.php" class="nav-link"><span data-hover="Logout">Logout</span></a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
         <header class="header">
             <div class="header__navbar">
@@ -116,10 +114,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 <div class='ranking-table-data-leader-1'>
                                     <div class='medal-gold'></div>
                                 </div>
-                                <div class='ranking-table-data'>
+                                <div class='ranking-table-data' style='margin-left:2%;'>
                                     {$row[1]}
                                 </div>
-                                <div class='ranking-table-data'>
+                                <div class='ranking-table-data' style='padding-left:0%;'>
                                     {$row[4]}
                                 </div>
                                 <div class='ranking-table-data'> ";
@@ -129,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
 
                             if ($_SESSION['eventHandeler'] == $row[3]) {
                                 echo "
-                        <button data-toggle='modal' data-target='#exampleModal' class='editBtn' id=' $row[0].','.$row[1].','.$row[4]; '>Edit</button>
+                        <button data-toggle='modal' data-target='#exampleModal' class='editBtn' id='".$row[0].",".$row[1].",".$row[4]."'>Edit</button>
                         ";
                             }
                             ?>
@@ -175,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 <div class='ranking-table-data' style='margin-left:2%;'>
                                 {$row[1]}
                                 </div>
-                                <div class='ranking-table-data'>
+                                <div class='ranking-table-data' style='padding-left:0%;'>
                                 {$row[4]}
                                 </div>
                                 <div class='ranking-table-data'>
@@ -205,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 <div class='ranking-table-data' style='margin-left:2%;'>
                                 {$row[1]}
                                 </div>
-                                <div class='ranking-table-data padding-4'>
+                                <div class='ranking-table-data padding-4' style='padding-left:0%;'>
                                 {$row[4]}
                                 </div>
                                 </div>

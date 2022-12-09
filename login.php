@@ -185,30 +185,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             -moz-osx-font-smoothing: grayscale;
         }
 
-        @media (max-width: 560px ) {
-            body{
+        @media (max-width: 560px) {
+            body {
                 margin-top: 100px;
             }
-            .tag{
+
+            .tag {
                 padding-top: 50px;
             }
         }
 
-        @media (max-width: 360px ) {
+        @media (max-width: 360px) {
             .form {
-            position: relative;
-            padding: 45px;
-            background:none;
-            text-align: center;
+                position: relative;
+                padding: 45px;
+                background: none;
+                text-align: center;
             }
 
-            #navbarNav{
+            #navbarNav {
                 display: none;
             }
 
-            .tag{
+            .tag {
                 padding-top: 50px;
             }
+
         }
     </style>
 
@@ -228,14 +230,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
     <!-- Navbar page -->
-    <nav class="navbar navbar-expand-sm navbar-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-light headroom headroom--not-bottom headroom--pinned headroom--top">
         <div class="container">
-            <a class="navbar-brand" href="./index.php">GeeksforGeeks SIT</a>
+            <a class="navbar-brand">GeeksforGeeks SIT</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"><a href="./index.php">Home</a></span>
-                <span class="navbar-toggler-icon"><a href="./login.php">Leaderboard</a></span>
-                <span class="navbar-toggler-icon"><a href="./logingfg.php">GFG Members Login</a></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -257,6 +260,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- official geeksforgeeks website login page -->
 
     <div class="login-page">
+        <div class="heading">
+            <h2 style="display: flex; justify-content: center; padding-bottom: 20px; margin-top: -50px;">Login</h2>
+        </div>
+
         <div class="form">
             <form class="register-form" method="post" action="login.php">
                 <input type="text" name="teamname" placeholder="Team Name" required='true' />
@@ -274,6 +281,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <!-- Login page ends here -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script>
         $('.message a').click(function() {
