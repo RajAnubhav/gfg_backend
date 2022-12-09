@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (($username == $row[1]) && ($password == $row[2])) {
         $_SESSION['role'] = $row[4];
+        $_SESSION['eventHandeler'] = $row[3];
         echo "
         <script>
         window.location='./editsample.php';

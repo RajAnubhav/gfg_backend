@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
     <link rel="stylesheet" href="./css/botton.css">
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="css/tooplate-style.css">
-    
+
 
     <style>
         button {
@@ -125,7 +125,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 <div class='ranking-table-data'> ";
                     ?>
 
-                        <button data-toggle="modal" data-target="#exampleModal" class="editBtn" id="<?php echo $row[0] ?> " >Edit</button>
+                            <?php
+
+                            if ($_SESSION['eventHandeler'] == $row[3]) {
+                                echo "
+                        <button data-toggle='modal' data-target='#exampleModal' class='editBtn' id=' $row[0].','.$row[1].','.$row[4]; '>Edit</button>
+                        ";
+                            }
+                            ?>
 
                 </div>
             </div>
@@ -137,20 +144,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 <div class='ranking-table-data-leader-2'>
                                     <div class='medal-silver'></div>
                                 </div>
-                                <div class='ranking-table-data'>
+                                <div class='ranking-table-data' style='margin-left:2%;'>
                                 {$row[1]}
                                 </div>
-                                <div class='ranking-table-data'>
+                                <div class='ranking-table-data' style='padding-left:0%;'>
                                 {$row[4]}
                                 </div>
                                 ";
 
-                                ?>
-                                    <div class='ranking-table-data'>
-                                    <button data-toggle="modal" data-target="#exampleModal" class="editBtn" id="<?php echo $row[0] ?> ">Edit</button>
+        ?>
+            <?php
 
-                                    </div>
-                            <?php
+                            if ($_SESSION['eventHandeler'] == $row[3]) {
+                                echo "
+    <button data-toggle='modal' data-target='#exampleModal' style='margin-right: 26px;' class='editBtn' id=' $row[0].','.$row[1].','.$row[4]; '>Edit</button>
+    ";
+                            }
+            ?>
+        <?php
                             echo "
                                 </div>
                                 ";
@@ -161,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 <div class='ranking-table-data-leader-3'>
                                 <div class='medal-bronze'></div>
                                 </div>
-                                <div class='ranking-table-data'>
+                                <div class='ranking-table-data' style='margin-left:2%;'>
                                 {$row[1]}
                                 </div>
                                 <div class='ranking-table-data'>
@@ -169,11 +180,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 </div>
                                 <div class='ranking-table-data'>
                                 ";
-                                ?>
-                                                                            <button data-toggle="modal" data-target="#exampleModal" class="editBtn" id="<?php echo $row[0] ?> ">Edit</button>
+        ?>
+            <?php
 
-                                <?php
-                                echo"
+                            if ($_SESSION['eventHandeler'] == $row[3]) {
+                                echo "
+    <button data-toggle='modal' data-target='#exampleModal' style='margin-right: 26px;' class='editBtn' id=' $row[0].','.$row[1].','.$row[4]; '>Edit</button>
+    ";
+                            }
+            ?>
+        <?php
+                            echo "
                                 </div>
                                 </div>
                                 ";
@@ -185,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 <div class='ranking-table-data'>
                                 {$ranking}
                                 </div>
-                                <div class='ranking-table-data'>
+                                <div class='ranking-table-data' style='margin-left:2%;'>
                                 {$row[1]}
                                 </div>
                                 <div class='ranking-table-data padding-4'>
@@ -195,12 +212,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
                                 <div class='ranking-table-data'>
 
                                 ";
-                                ?>
+        ?>
+            <?php
 
-                                        <button data-toggle="modal" data-target="#exampleModal" class="editBtn" id="<?php echo $row[0] ?> ">Edit</button>
-                                <?php
-
+                            if ($_SESSION['eventHandeler'] == $row[3]) {
                                 echo "
+    <button data-toggle='modal' data-target='#exampleModal' style='margin-right: 26px;' class='editBtn' id=' $row[0].','.$row[1].','.$row[4]; '>Edit</button>
+    ";
+                            }
+            ?>
+
+    <?php
+
+                            echo "
                                 </div>
                                 </div>
                                 ";
@@ -315,51 +339,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['score']) {
 
     </section>
     </div>
-<!-- modal -->
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" class="editBtn" id="<?php echo $row[0] ?> ">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 10000;">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <div class="form">
-        <form class="register-form" method="post" action="update.php">
-            <div>
-                <input type="number" name="score" placeholder="Score" />
-                <input type="hidden" name="id" id="Id">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 10000;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="margin: 0% 33%;">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="margin:0% 26%;">
+                    <div class="form">
+                        <form class="register-form" method="post" action="update.php">
+                            <div>
+                                <input type="number" name="score" placeholder="Score" id="score" />
+                                <input type="hidden" name="id" id="Id">
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" style="margin: 0px 65px 0px 0px;">Save</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            
-      </div>
-      <div class="modal-footer">
-      <button type="submit" style="margin: 10 0px;">Save</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- modal -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- <script>
-    let editBtn=document.getElementsByClassName('editBtn');
-    Array.from(editBtn).forEach((e)=>{
-        e.addEventListener('click',()=>{
-            document.getElementById('Id').value=e.id;
-
-        })
-    })
- </script>
+        </div>
+        <!-- modal -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+            let editBtn = document.getElementsByClassName('editBtn');
+            Array.from(editBtn).forEach((e) => {
+                e.addEventListener('click', () => {
+                    document.getElementById('Id').value = e.id.split(',')[0];
+                    document.getElementById('exampleModalLabel').innerHTML = e.id.split(',')[1];
+                    document.getElementById('score').placeholder = e.id.split(',')[2];
+                })
+            })
+        </script>
 </body>
 
 </html>
